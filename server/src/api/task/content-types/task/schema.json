@@ -22,11 +22,10 @@
     "dueDate": {
       "type": "datetime"
     },
-    "state": {
+    "taskState": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::status.status",
-      "inversedBy": "tasks"
+      "relation": "oneToOne",
+      "target": "api::status.status"
     }
   }
 }

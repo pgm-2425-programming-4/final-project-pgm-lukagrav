@@ -1,0 +1,8 @@
+export const API_URL = import.meta.env.PROD
+? "https://final-project-pgm-lukagrav.onrender.com/api"
+: "http://localhost:1337/api"
+
+export const API_TOKEN = import.meta.env.PROD
+
+? "aae1c56a72081ef7667bf2786076a63f6ac0ed370018fa28ee802f5ef00f1f81c59dfd817fda0740712998dcb2befc78721c0027de8cc982a6d0b2e4b89eb83a275c63b84dd79d552bb7c593fd7f2add9d797050730148b7b2240d1eb9a3dbff3569a0ee9f06e0117a8298bce21f275269aa502b7366f8e7638a60526faab315"
+: "16d1fc616be7be7fc275a7ee50a54cb2e31ed94fb39dabc061825f8795b6637fa30f08180e119e8a70779baad7f1012e727f4c89216372368ae66be85e39f00cdd47ec74b73c0314364b14ecbccecec8456e05b8b525c81c183e312a39f1117ce6c04db2ede23d6cfa503f0b04cf2818ef2628b20392a01ee52cfeb2900b4dd1"
