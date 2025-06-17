@@ -14,9 +14,9 @@
     "name": {
       "type": "string"
     },
-    "task": {
+    "tasks": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::task.task",
       "inversedBy": "labels"
     }
