@@ -1,13 +1,16 @@
 import React from "react";
 import "../css/styles.css";
 
-const Task = ({ title, tags, onClick }) => (
+const Task = ({ title, description, labels, onClick }) => (
   <div className="task" onClick={onClick}>
     <h4>{title}</h4>
-    {tags?.length > 0 && (
+
+    {description && <p>{description}</p>}
+
+    {labels?.length > 0 && (
       <ul>
-        {tags.map((tag) => (
-          <li key={tag}>{tag}</li>
+        {labels.map((label) => (
+          <li key={label.id}>{label.name}</li>
         ))}
       </ul>
     )}
