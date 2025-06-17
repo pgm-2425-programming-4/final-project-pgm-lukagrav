@@ -1,0 +1,128 @@
+/* Base layout */
+.app {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 200px;
+    background-color: #f7f8fa;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+  }
+  
+  .sidebar h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  .project {
+    margin: 0.5rem 0;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  /* Topbar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .topbar select,
+  .topbar input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .project-title {
+    flex: 1;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .add-task,
+  .view-backlog {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .add-task {
+    background-color: #14cba8;
+    color: white;
+  }
+  
+  .view-backlog {
+    background-color: #3f3fff;
+    color: white;
+  }
+  
+  /* Board layout */
+  .board {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  
+  /* Task columns */
+  .column {
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 250px;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .column h3 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #4b5563;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Task card */
+  .task {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .task p {
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  
+  .tag {
+    background-color: #111;
+    color: white;
+    font-size: 12px;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+  }
+  
