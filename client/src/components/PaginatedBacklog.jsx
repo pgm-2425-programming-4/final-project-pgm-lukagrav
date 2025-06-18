@@ -1,28 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
-import Backlog from './Backlog';
-import Pagination from './Pagination';
-import { API_TOKEN, API_URL } from '../../constants/constants';
-
-const fetchBacklog = async (page) => {
-  const res = await fetch(
-    `${API_URL}?populate=state&filters[state][name][$eq]=Backlog&pagination[page]=${page}&pagination[pageSize]=5`,
-    {
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-      }
-    }
-  );
-  if (!res.ok) throw new Error("Fout bij ophalen");
-  return res.json();
-};
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import Backlog from "./Backlog";
+import Pagination from "./Pagination";
+import { fetchBacklog } from "../data/FetchBacklog"
 
 export default function PaginatedBacklog() {
   const [page, setPage] = useState(1);
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['backlog', page],
-    queryFn: () => fetchBacklog(page)
+    queryKey: ["backlog", page],
+    queryFn: () => fetchBacklog(page),
   });
 
   if (isLoading) return <p>Laden...</p>;
@@ -41,5 +28,3 @@ export default function PaginatedBacklog() {
     </div>
   );
 }
-
-
