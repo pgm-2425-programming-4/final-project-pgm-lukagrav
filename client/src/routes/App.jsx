@@ -1,18 +1,19 @@
-import { createFileRoute } from '@tanstack/react-router'
-import "./App.css";
-import PaginatedBacklog from "../components/PaginatedBacklog";
+import { createFileRoute } from '@tanstack/react-router';
+import Sidebar from '../components/Sidebar';
+import PaginatedBacklog from '../components/PaginatedBacklog';
+import '../index.css'; // make sure styling is applied
 
 export const Route = createFileRoute('/App')({
-  component: PaginatedBacklog
-})
+  component: AppPage,
+});
 
-function App() {
+function AppPage() {
   return (
-    <main>
-      <h1>backlog</h1>
-      <PaginatedBacklog></PaginatedBacklog>
-    </main>
+    <div className="app">
+      <Sidebar />
+      <div className="main">
+        <PaginatedBacklog />
+      </div>
+    </div>
   );
 }
-
-export default App;
