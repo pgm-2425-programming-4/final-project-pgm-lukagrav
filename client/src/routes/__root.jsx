@@ -6,7 +6,6 @@ export const Route = createRootRoute({
       <>
         <div className="nav">
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
           <Link to="/app">App</Link>
         </div>
         <hr />
