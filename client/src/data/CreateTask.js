@@ -11,9 +11,9 @@ export const createTask = async (taskData) => {
       data: {
         title: taskData.title,
         description: taskData.description,
-        state: taskData.state,      // single relation (id)
-        project: taskData.project,  // single relation (id)
-        labels: taskData.labels     // array of label ids
+        state: taskData.state,
+        project: taskData.project,  
+        labels: taskData.labels    
       }
     }),
   });

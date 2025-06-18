@@ -15,5 +15,5 @@ export const fetchTasksByProject = async (projectId) => {
 
   const data = await res.json();
 
-  return data.data; // ← again, no need to map through attributes
+  return data.data;
 };

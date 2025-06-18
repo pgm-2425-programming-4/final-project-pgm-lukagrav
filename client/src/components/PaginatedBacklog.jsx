@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { fetchBacklog } from "../data/FetchBacklog";
 import Pagination from "./Pagination";
-import "../css/styles.css"; // Ensure this imports your styling
+import "../css/styles.css";
 
 export default function PaginatedBacklog() {
   const [page, setPage] = useState(1);

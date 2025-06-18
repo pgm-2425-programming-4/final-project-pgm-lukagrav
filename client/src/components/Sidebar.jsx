@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/styles.css';
 import { useProjects } from '../hooks/useProjects';
-import { Link } from '@tanstack/react-router'; // ✅ Import Link from TanStack Router
+import { Link } from '@tanstack/react-router';
 
 const Sidebar = ({ onProjectSelect, selectedProject }) => {
   const { data: projects, isLoading, isError } = useProjects();

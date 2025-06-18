@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import Sidebar from '../components/Sidebar';
 import PaginatedBacklog from '../components/PaginatedBacklog';
-import '../index.css'; // make sure styling is applied
+import '../index.css';
 
 export const Route = createFileRoute('/App')({
   component: AppPage,

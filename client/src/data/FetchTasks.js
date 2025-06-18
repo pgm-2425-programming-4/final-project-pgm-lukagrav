@@ -11,5 +11,5 @@ export const fetchAllTasks = async () => {
 
   const data = await res.json();
 
-  return data.data; // ← tasks are already flat (no attributes nesting)
+  return data.data; 
 };

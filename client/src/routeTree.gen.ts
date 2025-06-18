@@ -14,7 +14,6 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as AboutImport } from './routes/about'
 import { Route as AppImport } from './routes/App'
 import { Route as IndexImport } from './routes/index'
-import { Route as IdProjectIdImport } from './routes/$id/$projectId'
 
 // Create/Update Routes
 
@@ -33,12 +32,6 @@ const AppRoute = AppImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IdProjectIdRoute = IdProjectIdImport.update({
-  id: '/$id/$projectId',
-  path: '/$id/$projectId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,13 +60,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
-    '/$id/$projectId': {
-      id: '/$id/$projectId'
-      path: '/$id/$projectId'
-      fullPath: '/$id/$projectId'
-      preLoaderRoute: typeof IdProjectIdImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -83,14 +69,12 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/App': typeof AppRoute
   '/about': typeof AboutRoute
-  '/$id/$projectId': typeof IdProjectIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/App': typeof AppRoute
   '/about': typeof AboutRoute
-  '/$id/$projectId': typeof IdProjectIdRoute
 }
 
 export interface FileRoutesById {
@@ -98,15 +82,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/App': typeof AppRoute
   '/about': typeof AboutRoute
-  '/$id/$projectId': typeof IdProjectIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/App' | '/about' | '/$id/$projectId'
+  fullPaths: '/' | '/App' | '/about'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/App' | '/about' | '/$id/$projectId'
-  id: '__root__' | '/' | '/App' | '/about' | '/$id/$projectId'
+  to: '/' | '/App' | '/about'
+  id: '__root__' | '/' | '/App' | '/about'
   fileRoutesById: FileRoutesById
 }
 
@@ -114,14 +97,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRoute
   AboutRoute: typeof AboutRoute
-  IdProjectIdRoute: typeof IdProjectIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRoute,
   AboutRoute: AboutRoute,
-  IdProjectIdRoute: IdProjectIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -136,8 +117,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/App",
-        "/about",
-        "/$id/$projectId"
+        "/about"
       ]
     },
     "/": {
@@ -148,9 +128,6 @@ export const routeTree = rootRoute
     },
     "/about": {
       "filePath": "about.jsx"
-    },
-    "/$id/$projectId": {
-      "filePath": "$id/$projectId.jsx"
     }
   }
 }
