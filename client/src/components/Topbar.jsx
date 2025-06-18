@@ -1,16 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from '@tanstack/react-router';
+import TaskModal from './TaskModal';
 import '../css/styles.css';
 
-const Topbar = () => (
-  <div className="topbar">
-    <select>
-      <option>Back-end</option>
-    </select>
-    <input type="text" placeholder="Search by description" />
-    <div className="project-title">Active project: PGM3</div>
-    <button className="add-task">Add new task</button>
-    <button className="view-backlog">View backlog</button>
-  </div>
-);
+const Topbar = ({ onTaskCreated }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleSaveTask = async (task) => {
+    if (onTaskCreated) {
+      await onTaskCreated(task);
+    }
+    handleCloseModal();
+  };
+
+  return (
+    <div className="topbar">
+      <button className="add-task" onClick={handleOpenModal}>
+        Add new task
+      </button>
+
+      <Link to="/app">
+        <button className="view-backlog">View backlog</button>
+      </Link>
+
+      {isModalOpen && (
+        <TaskModal
+          task={{
+            title: '',
+            description: '',
+            labels: [],
+            state: null,
+            dueDate: '',
+          }}
+          onClose={handleCloseModal}
+          onSave={handleSaveTask}
+        />
+      )}
+    </div>
+  );
+};
 
 export default Topbar;

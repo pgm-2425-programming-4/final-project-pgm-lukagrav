@@ -15,7 +15,6 @@ function RouteComponent() {
     <div className="app">
       <Sidebar />
       <div className="main">
-        <Topbar />
         <Board />
       </div>
     </div>

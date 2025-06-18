@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import Topbar from './Topbar';
 import Board from './Board';
 import '../index.css';
 
@@ -14,7 +13,6 @@ const Dashboard = () => {
         selectedProject={projectId}
       />
       <div className="main">
-        <Topbar />
         <Board projectId={projectId} />
       </div>
     </div>

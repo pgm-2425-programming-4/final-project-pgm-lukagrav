@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../css/modal.css';
 import { fetchLabels } from '../data/FetchLabels';
+import { useProjects } from '../hooks/useProjects';
 
 const TaskModal = ({ task, onClose, onSave }) => {
-  const [title, setTitle] = useState(task.title);
+  const [title, setTitle] = useState(task.title || '');
   const [description, setDescription] = useState(task.description || '');
-  const [state, setState] = useState(task.state || { name: 'To Do', id: null });
+  const [stateId, setStateId] = useState(task.state?.id || '');
   const [labels, setLabels] = useState(task.labels || []);
+  const [projectId, setProjectId] = useState(task.project?.id || '');
   const [availableLabels, setAvailableLabels] = useState([]);
+
+  const { data: projects = [] } = useProjects();
 
   useEffect(() => {
     fetchLabels()
@@ -16,63 +20,70 @@ const TaskModal = ({ task, onClose, onSave }) => {
   }, []);
 
   const toggleLabel = (label) => {
-    const exists = labels.find(l => l.id === label.id);
-    if (exists) {
-      setLabels(labels.filter(l => l.id !== label.id));
-    } else {
-      setLabels([...labels, label]);
-    }
+    setLabels((prev) =>
+      prev.some((l) => l.id === label.id)
+        ? prev.filter((l) => l.id !== label.id)
+        : [...prev, label]
+    );
   };
 
   const handleSubmit = () => {
-    if (!title.trim()) return alert('Title cannot be empty.');
+    if (!title.trim()) return alert("Title cannot be empty.");
 
     onSave({
-      ...task,
       title,
       description,
-      state,
-      labels,
+      state: stateId ? Number(stateId) : null,
+      project: projectId ? Number(projectId) : null,
+      labels: labels.map((l) => l.id),
     });
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h3>Edit Task</h3>
+        <h3>{task.id ? 'Edit Task' : 'New Task'}</h3>
 
         <label>Title</label>
         <input
           type="text"
           value={title}
-          onChange={e => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <label>Description</label>
         <textarea
           value={description}
-          onChange={e => setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         <label>Status</label>
-        <select
-          value={state.name}
-          onChange={e => setState({ ...state, name: e.target.value })}
-        >
-          <option value="To Do">To Do</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Ready for Review">Ready for Review</option>
-          <option value="Done">Done</option>
+        <select value={stateId} onChange={(e) => setStateId(e.target.value)}>
+          <option value="">Select status</option>
+          <option value="4">To Do</option>
+          <option value="6">In Progress</option>
+          <option value="10">Ready for Review</option>
+          <option value="8">Done</option>
+        </select>
+
+        <label>Project</label>
+        <select value={projectId} onChange={(e) => setProjectId(e.target.value)}>
+          <option value="">Select a project</option>
+          {projects.map((project) => (
+            <option key={project.id} value={project.id}>
+              {project.course || project.name || `Project ${project.id}`}
+            </option>
+          ))}
         </select>
 
         <label>Labels</label>
         <div className="label-list">
-          {availableLabels.map(label => (
+          {availableLabels.map((label) => (
             <button
               key={label.id}
-              className={labels.some(l => l.id === label.id) ? 'active' : ''}
-              onClick={() => toggleLabel(label)}
               type="button"
+              className={labels.some((l) => l.id === label.id) ? 'active' : ''}
+              onClick={() => toggleLabel(label)}
             >
               {label.name}
             </button>

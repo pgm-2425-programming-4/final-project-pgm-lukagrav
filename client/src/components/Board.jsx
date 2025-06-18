@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import TaskColumn from "./TaskColumn";
 import TaskModal from "./TaskModal";
+import Topbar from "./Topbar";
 import { useTasks } from "../hooks/useTasks";
 import { updateTask } from "../data/UpdateTask";
+import { createTask } from "../data/CreateTask";
 import "../css/styles.css";
 
 const Board = ({ projectId }) => {
@@ -51,19 +53,24 @@ const Board = ({ projectId }) => {
 
   const handleCloseModal = () => setSelectedTask(null);
 
-  const handleSaveTask = async (updatedTask) => {
+  const handleSaveTask = async (task) => {
     try {
-      await updateTask(updatedTask);
+      if (task.id) {
+        await updateTask(task);
+      } else {
+        await createTask({ ...task, project: projectId });
+      }
       handleCloseModal();
       refetch();
     } catch (error) {
       console.error("Error saving task:", error);
-      alert("Failed to update the task. Please try again.");
+      alert("Failed to save the task. Please try again.");
     }
   };
 
   return (
     <div className="board">
+      <Topbar onTaskCreated={(task) => handleSaveTask(task)} />
       {columns.map((col) => (
         <TaskColumn key={col.title} {...col} />
       ))}
