@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tasks",
+  "info": {
+    "singularName": "task",
+    "pluralName": "tasks",
+    "displayName": "Task"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "State": {
+      "type": "enumeration",
+      "enum": [
+        "todo",
+        "in_progress",
+        "ready_for_review",
+        "done",
+        "backlog"
+      ]
+    },
+    "Group": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "PGM3",
+        "PGM4"
+      ]
+    },
+    "labels": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::label.label",
+      "mappedBy": "tasks"
+    }
+  }
+}
