@@ -1,4 +1,4 @@
-const API_TOKEN =
+export const API_TOKEN =
   "e23b5bb480656f4878247369ff4130a823e1574de24f9c6f0a99daf81efa31f5839da99a1b7d9468291321878665a8703eec7d36182623c49e7ed9cb93cc16e0f8df7bf853adf786d0f0b6ecfc0872ecdefd71b439ff333395979b7af89e88dc5059c29aefd1f08fe1a9cc7c4fdd89be0fa77103a374081dbd1c752a7d46298e ";
 
-const API_URL = "http://localhost:1337/api"
+export const API_URL = "http://localhost:1337/api"

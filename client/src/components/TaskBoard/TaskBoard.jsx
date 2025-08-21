@@ -1,6 +1,6 @@
 
-import TaskColumn from "./TaskColumn";
-import { useTasks } from "../hooks/useTasks";
+import TaskColumn from "../TaskColumn/TaskColumn";
+import { useTasks } from "../../hooks/UseTask";
 
 const Board = () => {
   const { data: tasks, isLoading, error } = useTasks();
@@ -8,7 +8,7 @@ const Board = () => {
   if (isLoading) return <p>Loading tasks...</p>;
   if (error) return <p>Error loading tasks</p>;
 
-  const states = ["todo", "inProgress", "review", "done"];
+  const states = ["todo", "in_progress", "review", "done"];
 
   return (
     <div style={{ display: "flex", gap: "20px" }}>

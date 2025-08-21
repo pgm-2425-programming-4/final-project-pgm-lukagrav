@@ -1,4 +1,4 @@
-import TaskCard from "./TaskCard";
+import TaskCard from "../TaskCard/TaskCard";
 
 const TaskColumn = ({ state, tasks }) => {
   const tasksForState = tasks.filter(task => task.state === state);
