@@ -11,16 +11,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "Description": {
+    "description": {
       "type": "blocks",
       "required": true
     },
-    "State": {
+    "state": {
       "type": "enumeration",
       "enum": [
         "todo",
@@ -30,7 +30,7 @@
         "backlog"
       ]
     },
-    "Group": {
+    "group": {
       "type": "enumeration",
       "required": true,
       "enum": [

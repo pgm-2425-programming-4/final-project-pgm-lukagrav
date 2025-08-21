@@ -392,7 +392,7 @@ export interface ApiLabelLabel extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     tasks: Schema.Attribute.Relation<'manyToMany', 'api::task.task'>;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
@@ -415,18 +415,18 @@ export interface ApiTaskTask extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    Group: Schema.Attribute.Enumeration<['PGM3', 'PGM4']> &
+    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    group: Schema.Attribute.Enumeration<['PGM3', 'PGM4']> &
       Schema.Attribute.Required;
     labels: Schema.Attribute.Relation<'manyToMany', 'api::label.label'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::task.task'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    State: Schema.Attribute.Enumeration<
+    state: Schema.Attribute.Enumeration<
       ['todo', 'in_progress', 'ready_for_review', 'done', 'backlog']
     >;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
