@@ -415,7 +415,7 @@ export interface ApiTaskTask extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    description: Schema.Attribute.Blocks;
     group: Schema.Attribute.Enumeration<['PGM3', 'PGM4']> &
       Schema.Attribute.Required;
     labels: Schema.Attribute.Relation<'manyToMany', 'api::label.label'>;

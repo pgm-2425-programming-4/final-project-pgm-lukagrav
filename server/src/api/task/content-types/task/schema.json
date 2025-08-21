@@ -18,7 +18,7 @@
     },
     "description": {
       "type": "blocks",
-      "required": true
+      "required": false
     },
     "state": {
       "type": "enumeration",
