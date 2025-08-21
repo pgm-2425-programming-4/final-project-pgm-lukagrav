@@ -1,21 +1,27 @@
 import TaskColumn from "../TaskColumn/TaskColumn";
 import { useTasks } from "../../hooks/UseTask";
 
-const Board = () => {
-  const { data: tasks, isLoading, error } = useTasks();
+const TaskBoard = ({ tasks: groupedTasks }) => {
+  const { data: fetchedTasks, isLoading, error } = useTasks();
 
-  if (isLoading) return <p>Loading tasks...</p>;
-  if (error) return <p>Error loading tasks</p>;
+  const tasks = groupedTasks ?? fetchedTasks;
 
-  const states = ["todo", "in_progress", "review", "done"];
+  if (isLoading && !groupedTasks) return <p>Loading tasks...</p>;
+  if (error && !groupedTasks) return <p>Error loading tasks</p>;
+
+  const states = ["todo", "in_progress", "ready_for_review", "done"];
 
   return (
     <div style={{ display: "flex", gap: "20px" }}>
-      {states.map(state => (
-        <TaskColumn key={state} state={state} tasks={tasks} />
+      {states.map((state) => (
+        <TaskColumn
+          key={state}
+          state={state}
+          tasks={tasks.filter((task) => task.state === state)}
+        />
       ))}
     </div>
   );
 };
 
-export default Board;
+export default TaskBoard;
