@@ -1,7 +1,7 @@
-import { API_TOKEN, API_URL } from "../../constants/constants";
+import { API_TOKEN, API_URL } from "../constants/constants";
 
 export const fetchAllTasks = async () => {
-  const res = await fetch(`${API_URL}/tasks?populate=*`, {
+  const res = await fetch(`${API_URL}/labels`, {
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
     },
