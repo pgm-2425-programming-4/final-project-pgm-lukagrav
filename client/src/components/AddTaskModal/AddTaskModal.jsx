@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { UseAddTask } from "../../hooks/UseAddTask";
+import { useAddTask } from "../../hooks/UseAddTask";
 import { useLabels } from "../../hooks/useLabels";
 
 export default function AddTaskModal({ onClose }) {
-  const { mutate: addTask } = UseAddTask();
+  const { mutate: addTask } = useAddTask();
   const { data: labels = [] } = useLabels();
 
   const [title, setTitle] = useState("");
