@@ -1,14 +1,16 @@
+import { useState } from "react";
 import TaskColumn from "../TaskColumn/TaskColumn";
 import { useTasks } from "../../hooks/UseTask";
-import { useState } from "react";
 import Boardbar from "../BoardBar/Boardbar";
 import { useLabels } from "../../hooks/useLabels";
+import AddTaskModal from "../AddTaskModal/AddTaskModal";
 
 const TaskBoard = ({ tasks: groupedTasks }) => {
   const { data: fetchedTasks, isLoading, error } = useTasks();
   const { data: labels = [], isLoading: labelsLoading } = useLabels();
 
   const [filteredLabel, setFilteredLabel] = useState("");
+  const [showAddModal, setShowAddModal] = useState(false);
 
   const tasks = groupedTasks ?? fetchedTasks;
 
@@ -23,8 +25,12 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
         <Boardbar
           labels={labels}
           onFilterChange={setFilteredLabel}
-          onAddTask={() => console.log("Open Add Task Modal")}
+          onAddTask={() => setShowAddModal(true)}
         />
+      )}
+
+      {showAddModal && (
+        <AddTaskModal onClose={() => setShowAddModal(false)} />
       )}
 
       <div style={{ display: "flex", gap: "20px" }}>
@@ -47,3 +53,4 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
 };
 
 export default TaskBoard;
+
