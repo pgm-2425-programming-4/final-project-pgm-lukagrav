@@ -17,8 +17,7 @@
       "unique": true
     },
     "description": {
-      "type": "blocks",
-      "required": false
+      "type": "text"
     },
     "state": {
       "type": "enumeration",
