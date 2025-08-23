@@ -10,6 +10,7 @@ export default function AddTaskModal({ onClose }) {
   const [state, setState] = useState("backlog");
   const [group, setGroup] = useState("PGM3");
   const [selectedLabels, setSelectedLabels] = useState([]);
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ export default function AddTaskModal({ onClose }) {
         state,
         group,
         labels: selectedLabels.map((id) => Number(id)),
+        description: description,
       },
       {
         onSuccess: () => {
@@ -62,6 +64,13 @@ export default function AddTaskModal({ onClose }) {
           <option value="PGM3">PGM3</option>
           <option value="PGM4">PGM4</option>
         </select>
+
+        <label>Description:</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Enter task description"
+        />
 
         <fieldset>
           <legend>Labels</legend>
