@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GroupsGroupRouteImport } from './routes/groups/$group'
+import { Route as BacklogGroupRouteImport } from './routes/backlog/$group'
 
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
@@ -28,34 +29,43 @@ const GroupsGroupRoute = GroupsGroupRouteImport.update({
   path: '/groups/$group',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BacklogGroupRoute = BacklogGroupRouteImport.update({
+  id: '/backlog/$group',
+  path: '/backlog/$group',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/backlog/$group': typeof BacklogGroupRoute
   '/groups/$group': typeof GroupsGroupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/backlog/$group': typeof BacklogGroupRoute
   '/groups/$group': typeof GroupsGroupRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/backlog/$group': typeof BacklogGroupRoute
   '/groups/$group': typeof GroupsGroupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/groups/$group'
+  fullPaths: '/' | '/about' | '/backlog/$group' | '/groups/$group'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/groups/$group'
-  id: '__root__' | '/' | '/about' | '/groups/$group'
+  to: '/' | '/about' | '/backlog/$group' | '/groups/$group'
+  id: '__root__' | '/' | '/about' | '/backlog/$group' | '/groups/$group'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BacklogGroupRoute: typeof BacklogGroupRoute
   GroupsGroupRoute: typeof GroupsGroupRoute
 }
 
@@ -82,12 +92,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroupsGroupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/backlog/$group': {
+      id: '/backlog/$group'
+      path: '/backlog/$group'
+      fullPath: '/backlog/$group'
+      preLoaderRoute: typeof BacklogGroupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BacklogGroupRoute: BacklogGroupRoute,
   GroupsGroupRoute: GroupsGroupRoute,
 }
 export const routeTree = rootRouteImport
