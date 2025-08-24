@@ -30,6 +30,7 @@ export default function Sidebar() {
         </ul>
 
         <h3>Groups</h3>
+        
         <ul>
           {groups.map((group) => (
             <li key={group}>
