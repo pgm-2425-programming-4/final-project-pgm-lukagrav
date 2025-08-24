@@ -3,7 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchTasks } from "../../api/fetchTasks";
 
 export default function Sidebar() {
-  const { data: tasks, isLoading, error } = useQuery({
+  const {
+    data: tasks,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["tasks"],
     queryFn: fetchTasks,
   });
@@ -35,14 +39,14 @@ export default function Sidebar() {
         </ul>
 
         <h3>Backlog</h3>
-        <Link to="/backlog">Go to Backlog</Link>
+        <ul>
+          {groups.map((group) => (
+            <li key={group}>
+              <Link to={`/backlog/${group}`}>Backlog {group}</Link>
+            </li>
+          ))}
+        </ul>
       </nav>
     </aside>
   );
 }
-
-
-
-
-
-
