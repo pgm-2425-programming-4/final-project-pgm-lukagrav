@@ -5,9 +5,9 @@ export function useUpdateTask() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: updateTask,
+    mutationFn: ({ documentId, data }) => updateTask({ documentId, data }),
     onSuccess: () => {
-
+        
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
   });
