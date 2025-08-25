@@ -10,7 +10,7 @@ function BacklogGroupPage() {
 
   return (
     <div>
-      <h1>Backlog for {group}</h1>
+      <h1 className="title is-2">Backlog for {group}</h1>
       <PaginatedBacklog group={group} />
     </div>
   );
