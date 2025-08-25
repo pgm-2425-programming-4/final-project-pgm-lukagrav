@@ -56,68 +56,133 @@ export default function EditTaskModal({ task, onClose }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <h2>Edit Task</h2>
+        <h2 className="title is-4">Edit Task</h2>
   
-        <label>Title</label>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
-  
-        <label>Description</label>
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-  
-        <label>State</label>
-        <select value={state} onChange={(e) => setState(e.target.value)}>
-          <option value="todo">Todo</option>
-          <option value="in_progress">In Progress</option>
-          <option value="ready_for_review">Ready for Review</option>
-          <option value="done">Done</option>
-        </select>
-  
-        <fieldset>
-          <legend>Labels</legend>
-          {labels.map((label) => (
-            <label key={label.id} style={{ display: "block", marginBottom: "0.25rem" }}>
-              <input
-                type="checkbox"
-                value={label.id}
-                checked={selectedLabels.includes(label.id)}
-                onChange={() => {
-                  const value = label.id;
-                  setSelectedLabels((prev) =>
-                    prev.includes(value)
-                      ? prev.filter((id) => id !== value)
-                      : [...prev, value]
-                  );
-                }}
-              />
-              {label.title}
-            </label>
-          ))}
-        </fieldset>
-  
-        <label>Group</label>
-        <select value={group} onChange={(e) => setGroup(e.target.value)}>
-          <option value="PGM3">PGM3</option>
-          <option value="PGM4">PGM4</option>
-        </select>
-  
-        <div className="actions">
-          <button className="save" onClick={handleSave}>Save</button>
-          <button className="delete-btn" onClick={handleDelete}>Delete</button>
-          <button className="cancel" onClick={onClose}>Cancel</button>
+        {/* Title */}
+        <div className="field">
+          <label className="label">Title</label>
+          <div className="control">
+            <input
+              className="input"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
         </div>
   
+        {/* Description */}
+        <div className="field">
+          <label className="label">Description</label>
+          <div className="control">
+            <textarea
+              className="textarea"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+        </div>
+  
+        {/* State */}
+        <div className="field">
+          <label className="label">State</label>
+          <div className="control">
+            <div className="select">
+              <select value={state} onChange={(e) => setState(e.target.value)}>
+                <option value="todo">Todo</option>
+                <option value="in_progress">In Progress</option>
+                <option value="ready_for_review">Ready for Review</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        {/* Labels */}
+        <div className="field">
+          <label className="label">Labels</label>
+          <div className="control">
+            {labels.map((label) => (
+              <label
+                key={label.id}
+                className="checkbox"
+                style={{ display: "block", marginBottom: "0.25rem" }}
+              >
+                <input
+                  type="checkbox"
+                  value={label.id}
+                  checked={selectedLabels.includes(label.id)}
+                  onChange={() => {
+                    const value = label.id;
+                    setSelectedLabels((prev) =>
+                      prev.includes(value)
+                        ? prev.filter((id) => id !== value)
+                        : [...prev, value]
+                    );
+                  }}
+                />{" "}
+                {label.title}
+              </label>
+            ))}
+          </div>
+        </div>
+  
+        {/* Group */}
+        <div className="field">
+          <label className="label">Group</label>
+          <div className="control">
+            <div className="select">
+              <select value={group} onChange={(e) => setGroup(e.target.value)}>
+                <option value="PGM3">PGM3</option>
+                <option value="PGM4">PGM4</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        {/* Actions */}
+        <div className="field is-grouped">
+          <div className="control">
+            <button className="button is-success" onClick={handleSave}>
+              Save
+            </button>
+          </div>
+          <div className="control">
+            <button className="button is-danger" onClick={handleDelete}>
+              Delete
+            </button>
+          </div>
+          <div className="control">
+            <button className="button is-light" onClick={onClose}>
+              Cancel
+            </button>
+          </div>
+        </div>
+  
+        {/* Delete confirmation */}
         {showDeleteConfirm && (
           <div className="modal-overlay" onClick={() => setShowDeleteConfirm(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <p>Are you sure you want to delete "{task.title}"?</p>
-              <div className="actions">
-                <button className="delete-btn" onClick={confirmDelete}>Yes, Delete</button>
-                <button className="cancel" onClick={() => setShowDeleteConfirm(false)}>Cancel</button>
+              <div className="field is-grouped">
+                <div className="control">
+                  <button className="button is-danger" onClick={confirmDelete}>
+                    Yes, Delete
+                  </button>
+                </div>
+                <div className="control">
+                  <button
+                    className="button is-light"
+                    onClick={() => setShowDeleteConfirm(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         )}
       </div>
     </div>
-  );  
+  );
+  
 }
