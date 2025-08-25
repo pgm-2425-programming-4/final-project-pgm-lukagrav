@@ -25,4 +25,5 @@ const TaskColumn = ({ title, tasks, onTaskClick }) => {
   );
 };
 
+
 export default TaskColumn;

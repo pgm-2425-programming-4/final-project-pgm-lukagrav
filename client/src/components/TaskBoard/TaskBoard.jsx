@@ -1,15 +1,13 @@
 import { useState } from "react";
 import TaskColumn from "../TaskColumn/TaskColumn";
 import { useTasks } from "../../hooks/UseTask";
-import Boardbar from "../BoardBar/Boardbar";
+import Boardbar from "../BoardBar/BoardBar";
 import { useLabels } from "../../hooks/useLabels";
 import AddTaskModal from "../AddTaskModal/AddTaskModal";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
 
 function formatState(str) {
-  return str
-    .replace(/_/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return str.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 const TaskBoard = ({ tasks: groupedTasks }) => {
