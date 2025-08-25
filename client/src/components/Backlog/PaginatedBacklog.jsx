@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTasks } from "../../hooks/UseTask";
 import Backlog from "./Backlog";
 import Pagination from "./Pagination";
+import "./Backlog.css"
 
 export default function PaginatedBacklog({ group }) {
   const { data: tasks = [], isLoading, error } = useTasks();
