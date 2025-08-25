@@ -21,6 +21,7 @@
     },
     "state": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "todo",
         "in_progress",
