@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TaskColumn from "../TaskColumn/TaskColumn";
+import TaskColumn from "../TaskColumn/TaskColumn.jsx";
 import { useTasks } from "../../hooks/UseTask";
 import Boardbar from "../BoardBar/BoardBar";
 import { useLabels } from "../../hooks/useLabels";
