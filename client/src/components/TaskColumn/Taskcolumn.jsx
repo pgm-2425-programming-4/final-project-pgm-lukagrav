@@ -1,17 +1,15 @@
 import TaskCard from "../TaskCard/TaskCard";
 import "./TaskColumn.css";
 
-const TaskColumn = ({ state, tasks, onTaskClick }) => {
-  const tasksForState = tasks.filter((task) => task.state === state);
-
+const TaskColumn = ({ title, tasks, onTaskClick }) => {
   return (
     <div className="column is-one-quarter">
       <div className="box task-column-box">
-        <h3 className="title is-5 has-text-centered mb-4">{state}</h3>
+        <h3 className="title is-5 has-text-centered mb-4">{title}</h3>
 
-        {tasksForState.length > 0 ? (
+        {tasks.length > 0 ? (
           <div className="content">
-            {tasksForState.map((task) => (
+            {tasks.map((task) => (
               <TaskCard
                 key={task.id}
                 task={task}

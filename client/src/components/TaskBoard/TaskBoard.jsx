@@ -6,6 +6,12 @@ import { useLabels } from "../../hooks/useLabels";
 import AddTaskModal from "../AddTaskModal/AddTaskModal";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
 
+function formatState(str) {
+  return str
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 const TaskBoard = ({ tasks: groupedTasks }) => {
   const { data: fetchedTasks = [], isLoading, error } = useTasks();
   const { data: labels = [], isLoading: labelsLoading } = useLabels();
@@ -41,20 +47,25 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
       )}
 
       <div className="columns is-variable is-4 is-flex align-stretch">
-        {states.map((state) => (
-          <TaskColumn
-            key={state}
-            state={state}
-            tasks={tasks
-              .filter((task) => task.state === state)
-              .filter((task) =>
-                filteredLabel
-                  ? task.labels?.some((label) => label.title === filteredLabel)
-                  : true,
-              )}
-            onTaskClick={(task) => setSelectedTask(task)}
-          />
-        ))}
+        {states.map((state) => {
+          const formattedState = formatState(state); // human-readable
+          return (
+            <TaskColumn
+              key={state}
+              title={formattedState} // <-- pass formatted title
+              tasks={tasks
+                .filter((task) => task.state === state)
+                .filter((task) =>
+                  filteredLabel
+                    ? task.labels?.some(
+                        (label) => label.title === filteredLabel
+                      )
+                    : true
+                )}
+              onTaskClick={(task) => setSelectedTask(task)}
+            />
+          );
+        })}
       </div>
     </div>
   );
