@@ -47,7 +47,7 @@ export default function Pagination({
           {pageNumber}
         </button>
       </li>
-    )
+    ),
   );
 
   return (

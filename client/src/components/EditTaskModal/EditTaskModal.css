@@ -1,74 +1,76 @@
 .modal-content textarea {
-    width: 100%;
-    min-height: 120px; 
-    max-height: 200px;
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    resize: vertical;
-    box-sizing: border-box;
-  }
-  
-  .modal-content button {
-    padding: 0.6rem 1.2rem;
-    margin-right: 0.5rem;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .modal-content button.add {
-    background-color: #3273dc;
-    color: white;
-  }
-  
-  .modal-content button.add:hover {
-    background-color: #2759a5;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  .modal-content button.save {
-    background-color: #23d160;
-    color: white;
-  }
-  
-  .modal-content button.save:hover {
-    background-color: #1aaa4b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  .modal-content button.cancel {
-    background-color: #f5f5f5;
-    color: #363636;
-  }
-  
-  .modal-content button.cancel:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-1px);
-  }
-  
-  .modal-content button.delete-btn {
-    background-color: #ff3860;
-    color: white;
-  }
-  
-  .modal-content button.delete-btn:hover {
-    background-color: #c72b4a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  .modal-content .actions {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
+  width: 100%;
+  min-height: 120px;
+  max-height: 200px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  padding: 0.6rem 1.2rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition:
+    background 0.2s,
+    transform 0.1s,
+    box-shadow 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content button.add {
+  background-color: #3273dc;
+  color: white;
+}
+
+.modal-content button.add:hover {
+  background-color: #2759a5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content button.save {
+  background-color: #23d160;
+  color: white;
+}
+
+.modal-content button.save:hover {
+  background-color: #1aaa4b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content button.cancel {
+  background-color: #f5f5f5;
+  color: #363636;
+}
+
+.modal-content button.cancel:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+.modal-content button.delete-btn {
+  background-color: #ff3860;
+  color: white;
+}
+
+.modal-content button.delete-btn:hover {
+  background-color: #c72b4a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content .actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

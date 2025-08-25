@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAddTask } from "../../hooks/UseAddTask";
 import { useLabels } from "../../hooks/useLabels";
-import "./AddTaskModal.css"
+import "./AddTaskModal.css";
 
 export default function AddTaskModal({ onClose }) {
   const { mutate: addTask } = useAddTask();
@@ -28,7 +28,7 @@ export default function AddTaskModal({ onClose }) {
         onSuccess: () => {
           onClose();
         },
-      }
+      },
     );
   };
 
@@ -37,7 +37,7 @@ export default function AddTaskModal({ onClose }) {
     setSelectedLabels((prev) =>
       prev.includes(value)
         ? prev.filter((id) => id !== value)
-        : [...prev, value]
+        : [...prev, value],
     );
   };
 
@@ -46,7 +46,7 @@ export default function AddTaskModal({ onClose }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <form onSubmit={handleSubmit} className="modal-form">
           <h2>Add Task</h2>
-  
+
           <input
             type="text"
             placeholder="Task title"
@@ -55,7 +55,7 @@ export default function AddTaskModal({ onClose }) {
             required
             className="modal-input"
           />
-  
+
           <select
             value={state}
             onChange={(e) => setState(e.target.value)}
@@ -67,7 +67,7 @@ export default function AddTaskModal({ onClose }) {
             <option value="ready_for_review">Ready for Review</option>
             <option value="done">Done</option>
           </select>
-  
+
           <select
             value={group}
             onChange={(e) => setGroup(e.target.value)}
@@ -76,7 +76,7 @@ export default function AddTaskModal({ onClose }) {
             <option value="PGM3">PGM3</option>
             <option value="PGM4">PGM4</option>
           </select>
-  
+
           <label>Description:</label>
           <textarea
             value={description}
@@ -84,7 +84,7 @@ export default function AddTaskModal({ onClose }) {
             placeholder="Enter task description"
             className="modal-textarea"
           />
-  
+
           <fieldset className="modal-fieldset">
             <legend>Labels</legend>
             {labels.map((label) => (
@@ -100,14 +100,17 @@ export default function AddTaskModal({ onClose }) {
               </label>
             ))}
           </fieldset>
-  
+
           <div className="actions">
-            <button type="submit" className="add">Add Task</button>
-            <button type="button" className="cancel" onClick={onClose}>Cancel</button>
+            <button type="submit" className="add">
+              Add Task
+            </button>
+            <button type="button" className="cancel" onClick={onClose}>
+              Cancel
+            </button>
           </div>
         </form>
       </div>
     </div>
   );
-  
 }

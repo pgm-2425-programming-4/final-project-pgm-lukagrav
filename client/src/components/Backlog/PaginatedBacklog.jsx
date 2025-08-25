@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTasks } from "../../hooks/UseTask";
 import Backlog from "./Backlog";
 import Pagination from "./Pagination";
-import "./Backlog.css"
+import "./Backlog.css";
 
 export default function PaginatedBacklog({ group }) {
   const { data: tasks = [], isLoading, error } = useTasks();
@@ -13,13 +13,13 @@ export default function PaginatedBacklog({ group }) {
   if (error) return <p>Error loading backlog</p>;
 
   const backlogTasks = tasks.filter(
-    (task) => task.state === "backlog" && (!group || task.group === group)
+    (task) => task.state === "backlog" && (!group || task.group === group),
   );
 
   const pageCount = Math.ceil(backlogTasks.length / pageSize);
   const paginatedTasks = backlogTasks.slice(
     (currentPage - 1) * pageSize,
-    currentPage * pageSize
+    currentPage * pageSize,
   );
 
   return (

@@ -8,7 +8,7 @@ export function useDeleteTask() {
     mutationFn: deleteTask,
     onSuccess: (documentId) => {
       queryClient.setQueryData(["tasks"], (oldTasks = []) =>
-        oldTasks.filter((task) => task.documentId !== documentId)
+        oldTasks.filter((task) => task.documentId !== documentId),
       );
     },
   });

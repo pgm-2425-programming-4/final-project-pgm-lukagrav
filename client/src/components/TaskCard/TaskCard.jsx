@@ -1,5 +1,5 @@
-import React from 'react';
-import './TaskCard.css';
+import React from "react";
+import "./TaskCard.css";
 
 const TaskCard = ({ task, onClick }) => {
   return (

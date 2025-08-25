@@ -4,7 +4,11 @@ import { fetchTasks } from "../../api/fetchTasks";
 import "./Sidebar.css";
 
 export default function Sidebar() {
-  const { data: tasks = [], isLoading, error } = useQuery({
+  const {
+    data: tasks = [],
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["tasks"],
     queryFn: fetchTasks,
   });
@@ -16,11 +20,14 @@ export default function Sidebar() {
 
   return (
     <aside className="menu">
-
       <p className="menu-label">Main</p>
       <ul className="menu-list">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
 
       <p className="menu-label">Groups</p>

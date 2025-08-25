@@ -17,7 +17,6 @@ export default function Boardbar({ onFilterChange, onAddTask }) {
 
   return (
     <div className="box is-flex is-align-items-center is-justify-content-space-between mb-5">
-
       <div className="select mr-3">
         <select value={selectedLabel} onChange={handleLabelChange}>
           <option value="">All labels</option>
@@ -28,7 +27,7 @@ export default function Boardbar({ onFilterChange, onAddTask }) {
           ))}
         </select>
       </div>
-  
+
       <button className="button is-primary" onClick={onAddTask}>
         Add Task
       </button>

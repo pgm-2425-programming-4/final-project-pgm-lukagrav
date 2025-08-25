@@ -50,7 +50,7 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
               .filter((task) =>
                 filteredLabel
                   ? task.labels?.some((label) => label.title === filteredLabel)
-                  : true
+                  : true,
               )}
             onTaskClick={(task) => setSelectedTask(task)}
           />

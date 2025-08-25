@@ -1,7 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
-import TaskBoard from '../components/TaskBoard/TaskBoard';
+import { createFileRoute } from "@tanstack/react-router";
+import TaskBoard from "../components/TaskBoard/TaskBoard";
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: Index,
 });
 

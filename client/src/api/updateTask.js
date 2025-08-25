@@ -16,4 +16,3 @@ export const updateTask = async ({ documentId, data }) => {
 
   return res.json();
 };
-

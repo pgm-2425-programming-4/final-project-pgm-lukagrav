@@ -1,16 +1,17 @@
 .backlog {
-    padding-left: 0;
-    margin-bottom: 1rem;
-    list-style: none;
-  }
-  
-  .backlog li.box {
-    cursor: pointer;
-    transition: transform 0.1s, background 0.2s;
-  }
-  
-  .backlog li.box:hover {
-    transform: translateY(-2px);
-    background-color: #f5f5f5;
-  }
-  
+  padding-left: 0;
+  margin-bottom: 1rem;
+  list-style: none;
+}
+
+.backlog li.box {
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    background 0.2s;
+}
+
+.backlog li.box:hover {
+  transform: translateY(-2px);
+  background-color: #f5f5f5;
+}

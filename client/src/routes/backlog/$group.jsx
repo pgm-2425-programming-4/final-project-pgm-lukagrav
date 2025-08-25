@@ -1,12 +1,12 @@
-import { createFileRoute } from '@tanstack/react-router';
-import PaginatedBacklog from '../../components/Backlog/PaginatedBacklog';
+import { createFileRoute } from "@tanstack/react-router";
+import PaginatedBacklog from "../../components/Backlog/PaginatedBacklog";
 
-export const Route = createFileRoute('/backlog/$group')({
+export const Route = createFileRoute("/backlog/$group")({
   component: BacklogGroupPage,
 });
 
 function BacklogGroupPage() {
-  const { group } = Route.useParams(); 
+  const { group } = Route.useParams();
 
   return (
     <div>

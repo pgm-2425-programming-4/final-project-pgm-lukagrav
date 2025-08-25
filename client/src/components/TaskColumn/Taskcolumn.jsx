@@ -1,5 +1,5 @@
 import TaskCard from "../TaskCard/TaskCard";
-import "./TaskColumn.css"
+import "./TaskColumn.css";
 
 const TaskColumn = ({ state, tasks, onTaskClick }) => {
   const tasksForState = tasks.filter((task) => task.state === state);
@@ -8,7 +8,7 @@ const TaskColumn = ({ state, tasks, onTaskClick }) => {
     <div className="column is-one-quarter">
       <div className="box task-column-box">
         <h3 className="title is-5 has-text-centered mb-4">{state}</h3>
-  
+
         {tasksForState.length > 0 ? (
           <div className="content">
             {tasksForState.map((task) => (
@@ -25,8 +25,6 @@ const TaskColumn = ({ state, tasks, onTaskClick }) => {
       </div>
     </div>
   );
-  
-  
 };
 
 export default TaskColumn;

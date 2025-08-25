@@ -7,13 +7,12 @@ export const fetchTaskByDocumentId = async (documentId) => {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`,
       },
-    }
+    },
   );
 
   if (!res.ok) throw new Error("Failed to fetch task");
 
   const data = await res.json();
 
-  return data.data
+  return data.data;
 };
-

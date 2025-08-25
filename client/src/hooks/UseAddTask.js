@@ -7,7 +7,6 @@ export function useAddTask() {
   return useMutation({
     mutationFn: addTask,
     onSuccess: () => {
-
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
   });
