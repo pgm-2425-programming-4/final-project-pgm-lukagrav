@@ -1,13 +1,7 @@
-export const API_TOKEN =
-  "e23b5bb480656f4878247369ff4130a823e1574de24f9c6f0a99daf81efa31f5839da99a1b7d9468291321878665a8703eec7d36182623c49e7ed9cb93cc16e0f8df7bf853adf786d0f0b6ecfc0872ecdefd71b439ff333395979b7af89e88dc5059c29aefd1f08fe1a9cc7c4fdd89be0fa77103a374081dbd1c752a7d46298e ";
+export const API_URL = import.meta.env.PROD
+  ? "https://pgm4-ek2-lukagrav.onrender.com/api"
+  : "http://localhost:1337/api";
 
-export const API_URL = "http://localhost:1337/api";
-
-
-// export const API_URL = import.meta.env.PROD
-//   ? "https://pgm4-ek2-lukagrav.onrender.com/api"
-//   : "http://localhost:1337/api";
-
-// export const API_TOKEN = import.meta.env.PROD
-//   ? ""
-//   : "e23b5bb480656f4878247369ff4130a823e1574de24f9c6f0a99daf81efa31f5839da99a1b7d9468291321878665a8703eec7d36182623c49e7ed9cb93cc16e0f8df7bf853adf786d0f0b6ecfc0872ecdefd71b439ff333395979b7af89e88dc5059c29aefd1f08fe1a9cc7c4fdd89be0fa77103a374081dbd1c752a7d46298e";
+export const API_TOKEN = import.meta.env.PROD
+  ? "a03badcb77185bc17d6e96e5728f994f3275e3e41e593cd17529409b668861b5a7c6fee6b7692085dbd0aa1061b18b205e68822954df12dd1a53067b92f64034f66d8803bfd06c3ff755c356c886cc5c64de9c76c5abc46b6cfdd6e6001de430dc7ef5b9360e593d86b4bc73c6be44898638e0e861d755acb0227f4da568b46e"
+  : "e23b5bb480656f4878247369ff4130a823e1574de24f9c6f0a99daf81efa31f5839da99a1b7d9468291321878665a8703eec7d36182623c49e7ed9cb93cc16e0f8df7bf853adf786d0f0b6ecfc0872ecdefd71b439ff333395979b7af89e88dc5059c29aefd1f08fe1a9cc7c4fdd89be0fa77103a374081dbd1c752a7d46298e";
