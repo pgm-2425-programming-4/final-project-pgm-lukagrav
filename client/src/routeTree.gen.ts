@@ -8,97 +8,97 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root";
-import { Route as AboutRouteImport } from "./routes/about";
-import { Route as IndexRouteImport } from "./routes/index";
-import { Route as GroupsGroupRouteImport } from "./routes/groups/$group";
-import { Route as BacklogGroupRouteImport } from "./routes/backlog/$group";
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as GroupsGroupRouteImport } from './routes/groups/$group'
+import { Route as BacklogGroupRouteImport } from './routes/backlog/$group'
 
 const AboutRoute = AboutRouteImport.update({
-  id: "/about",
-  path: "/about",
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const GroupsGroupRoute = GroupsGroupRouteImport.update({
-  id: "/groups/$group",
-  path: "/groups/$group",
+  id: '/groups/$group',
+  path: '/groups/$group',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const BacklogGroupRoute = BacklogGroupRouteImport.update({
-  id: "/backlog/$group",
-  path: "/backlog/$group",
+  id: '/backlog/$group',
+  path: '/backlog/$group',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "/about": typeof AboutRoute;
-  "/backlog/$group": typeof BacklogGroupRoute;
-  "/groups/$group": typeof GroupsGroupRoute;
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/backlog/$group': typeof BacklogGroupRoute
+  '/groups/$group': typeof GroupsGroupRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "/about": typeof AboutRoute;
-  "/backlog/$group": typeof BacklogGroupRoute;
-  "/groups/$group": typeof GroupsGroupRoute;
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/backlog/$group': typeof BacklogGroupRoute
+  '/groups/$group': typeof GroupsGroupRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport;
-  "/": typeof IndexRoute;
-  "/about": typeof AboutRoute;
-  "/backlog/$group": typeof BacklogGroupRoute;
-  "/groups/$group": typeof GroupsGroupRoute;
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/backlog/$group': typeof BacklogGroupRoute
+  '/groups/$group': typeof GroupsGroupRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/about" | "/backlog/$group" | "/groups/$group";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/about" | "/backlog/$group" | "/groups/$group";
-  id: "__root__" | "/" | "/about" | "/backlog/$group" | "/groups/$group";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/about' | '/backlog/$group' | '/groups/$group'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/about' | '/backlog/$group' | '/groups/$group'
+  id: '__root__' | '/' | '/about' | '/backlog/$group' | '/groups/$group'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  AboutRoute: typeof AboutRoute;
-  BacklogGroupRoute: typeof BacklogGroupRoute;
-  GroupsGroupRoute: typeof GroupsGroupRoute;
+  IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BacklogGroupRoute: typeof BacklogGroupRoute
+  GroupsGroupRoute: typeof GroupsGroupRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/about": {
-      id: "/about";
-      path: "/about";
-      fullPath: "/about";
-      preLoaderRoute: typeof AboutRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/groups/$group": {
-      id: "/groups/$group";
-      path: "/groups/$group";
-      fullPath: "/groups/$group";
-      preLoaderRoute: typeof GroupsGroupRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/backlog/$group": {
-      id: "/backlog/$group";
-      path: "/backlog/$group";
-      fullPath: "/backlog/$group";
-      preLoaderRoute: typeof BacklogGroupRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups/$group': {
+      id: '/groups/$group'
+      path: '/groups/$group'
+      fullPath: '/groups/$group'
+      preLoaderRoute: typeof GroupsGroupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/backlog/$group': {
+      id: '/backlog/$group'
+      path: '/backlog/$group'
+      fullPath: '/backlog/$group'
+      preLoaderRoute: typeof BacklogGroupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,7 +107,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BacklogGroupRoute: BacklogGroupRoute,
   GroupsGroupRoute: GroupsGroupRoute,
-};
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
