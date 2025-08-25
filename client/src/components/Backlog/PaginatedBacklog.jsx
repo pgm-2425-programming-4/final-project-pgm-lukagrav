@@ -7,7 +7,7 @@ import "./Backlog.css"
 export default function PaginatedBacklog({ group }) {
   const { data: tasks = [], isLoading, error } = useTasks();
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 5;
+  const pageSize = 10;
 
   if (isLoading) return <p>Loading backlog...</p>;
   if (error) return <p>Error loading backlog</p>;
