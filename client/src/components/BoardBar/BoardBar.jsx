@@ -16,17 +16,22 @@ export default function Boardbar({ onFilterChange, onAddTask }) {
   if (error) return <p>Error loading labels</p>;
 
   return (
-    <div>
-      <select value={selectedLabel} onChange={handleLabelChange}>
-        <option value="">All labels</option>
-        {labels.map((label) => (
-          <option key={label.id} value={label.title}>
-            {label.title}
-          </option>
-        ))}
-      </select>
+    <div className="box is-flex is-align-items-center is-justify-content-space-between mb-5">
 
-      <button onClick={onAddTask}>Add Task</button>
+      <div className="select mr-3">
+        <select value={selectedLabel} onChange={handleLabelChange}>
+          <option value="">All labels</option>
+          {labels.map((label) => (
+            <option key={label.id} value={label.title}>
+              {label.title}
+            </option>
+          ))}
+        </select>
+      </div>
+  
+      <button className="button is-primary" onClick={onAddTask}>
+        Add Task
+      </button>
     </div>
   );
 }
