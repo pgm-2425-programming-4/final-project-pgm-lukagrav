@@ -1,7 +1,5 @@
-// src/components/AppLayout/AppLayout.jsx
 import { Outlet } from "@tanstack/react-router";
 import Sidebar from "../Sidebar/Sidebar";
-import "./AppLayout.css"
 
 export default function AppLayout() {
   return (
@@ -11,7 +9,7 @@ export default function AppLayout() {
           <Sidebar />
         </div>
 
-        <div className="column main-content">
+        <div className="column main-content mt-5">
           <Outlet />
         </div>
       </div>

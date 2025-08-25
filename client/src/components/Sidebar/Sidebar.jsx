@@ -1,4 +1,3 @@
-// src/components/Sidebar/Sidebar.jsx
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTasks } from "../../api/fetchTasks";

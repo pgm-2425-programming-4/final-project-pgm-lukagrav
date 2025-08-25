@@ -58,7 +58,6 @@ export default function EditTaskModal({ task, onClose }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2 className="title is-4">Edit Task</h2>
   
-        {/* Title */}
         <div className="field">
           <label className="label">Title</label>
           <div className="control">
@@ -70,7 +69,6 @@ export default function EditTaskModal({ task, onClose }) {
           </div>
         </div>
   
-        {/* Description */}
         <div className="field">
           <label className="label">Description</label>
           <div className="control">
@@ -82,7 +80,6 @@ export default function EditTaskModal({ task, onClose }) {
           </div>
         </div>
   
-        {/* State */}
         <div className="field">
           <label className="label">State</label>
           <div className="control">
@@ -97,7 +94,6 @@ export default function EditTaskModal({ task, onClose }) {
           </div>
         </div>
   
-        {/* Labels */}
         <div className="field">
           <label className="label">Labels</label>
           <div className="control">
@@ -126,7 +122,6 @@ export default function EditTaskModal({ task, onClose }) {
           </div>
         </div>
   
-        {/* Group */}
         <div className="field">
           <label className="label">Group</label>
           <div className="control">
@@ -139,7 +134,6 @@ export default function EditTaskModal({ task, onClose }) {
           </div>
         </div>
   
-        {/* Actions */}
         <div className="field is-grouped">
           <div className="control">
             <button className="button is-success" onClick={handleSave}>
@@ -158,7 +152,6 @@ export default function EditTaskModal({ task, onClose }) {
           </div>
         </div>
   
-        {/* Delete confirmation */}
         {showDeleteConfirm && (
           <div className="modal-overlay" onClick={() => setShowDeleteConfirm(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
