@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLabels } from "../../hooks/useLabels";
+import { useLabels } from "../../hooks/UseLabels";
 
 export default function Boardbar({ onFilterChange, onAddTask }) {
   const [selectedLabel, setSelectedLabel] = useState("");

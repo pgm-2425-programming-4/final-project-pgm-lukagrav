@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAddTask } from "../../hooks/UseAddTask";
-import { useLabels } from "../../hooks/useLabels";
+import { useLabels } from "../../hooks/UseLabels";
 import "./AddTaskModal.css";
 
 export default function AddTaskModal({ onClose }) {
@@ -28,7 +28,7 @@ export default function AddTaskModal({ onClose }) {
         onSuccess: () => {
           onClose();
         },
-      },
+      }
     );
   };
 
@@ -37,7 +37,7 @@ export default function AddTaskModal({ onClose }) {
     setSelectedLabels((prev) =>
       prev.includes(value)
         ? prev.filter((id) => id !== value)
-        : [...prev, value],
+        : [...prev, value]
     );
   };
 

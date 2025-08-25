@@ -1,10 +1,8 @@
 import { useState } from "react";
-// In TaskBoard.jsx
 import TaskColumn from "../TaskColumn/TaskColumn.jsx";
-
 import { useTasks } from "../../hooks/UseTask";
 import Boardbar from "../BoardBar/BoardBar";
-import { useLabels } from "../../hooks/useLabels";
+import { useLabels } from "../../hooks/UseLabels.js";
 import AddTaskModal from "../AddTaskModal/AddTaskModal";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
 

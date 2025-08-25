@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useUpdateTask } from "../../hooks/UseUpdateTask";
 import { useDeleteTask } from "../../hooks/UseDeleteTask";
-import { useLabels } from "../../hooks/useLabels";
+import { useLabels } from "../../hooks/UseLabels";
 import "./EditTaskModal.css";
 
 export default function EditTaskModal({ task, onClose }) {
@@ -13,7 +13,7 @@ export default function EditTaskModal({ task, onClose }) {
   const [description, setDescription] = useState(task?.description || "");
   const [state, setState] = useState(task?.state || "todo");
   const [selectedLabels, setSelectedLabels] = useState(
-    task?.labels?.map((l) => l.id) || [],
+    task?.labels?.map((l) => l.id) || []
   );
   const [group, setGroup] = useState(task?.group || "PGM3");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -36,7 +36,7 @@ export default function EditTaskModal({ task, onClose }) {
       },
       {
         onSuccess: () => onClose(),
-      },
+      }
     );
   };
 
@@ -115,7 +115,7 @@ export default function EditTaskModal({ task, onClose }) {
                     setSelectedLabels((prev) =>
                       prev.includes(value)
                         ? prev.filter((id) => id !== value)
-                        : [...prev, value],
+                        : [...prev, value]
                     );
                   }}
                 />{" "}
