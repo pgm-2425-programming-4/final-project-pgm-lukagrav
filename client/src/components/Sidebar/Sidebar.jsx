@@ -1,13 +1,11 @@
+// src/components/Sidebar/Sidebar.jsx
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTasks } from "../../api/fetchTasks";
+import "./Sidebar.css";
 
 export default function Sidebar() {
-  const {
-    data: tasks,
-    isLoading,
-    error,
-  } = useQuery({
+  const { data: tasks = [], isLoading, error } = useQuery({
     queryKey: ["tasks"],
     queryFn: fetchTasks,
   });
@@ -18,36 +16,31 @@ export default function Sidebar() {
   const groups = [...new Set(tasks.map((task) => task.group))];
 
   return (
-    <aside>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
+    <aside className="menu">
 
-        <h3>Groups</h3>
-        
-        <ul>
-          {groups.map((group) => (
-            <li key={group}>
-              <Link to={`/groups/${group}`}>{group}</Link>
-            </li>
-          ))}
-        </ul>
+      <p className="menu-label">Main</p>
+      <ul className="menu-list">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+      </ul>
 
-        <h3>Backlog</h3>
-        <ul>
-          {groups.map((group) => (
-            <li key={group}>
-              <Link to={`/backlog/${group}`}>Backlog {group}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <p className="menu-label">Groups</p>
+      <ul className="menu-list">
+        {groups.map((group) => (
+          <li key={group}>
+            <Link to={`/groups/${group}`}>{group}</Link>
+          </li>
+        ))}
+      </ul>
+
+      <p className="menu-label">Backlog</p>
+      <ul className="menu-list">
+        {groups.map((group) => (
+          <li key={group}>
+            <Link to={`/backlog/${group}`}>Backlog {group}</Link>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }

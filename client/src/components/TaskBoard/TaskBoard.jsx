@@ -31,9 +31,7 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
         />
       )}
 
-      {showAddModal && (
-        <AddTaskModal onClose={() => setShowAddModal(false)} />
-      )}
+      {showAddModal && <AddTaskModal onClose={() => setShowAddModal(false)} />}
 
       {selectedTask && (
         <EditTaskModal
@@ -42,7 +40,7 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
         />
       )}
 
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div className="columns is-variable is-4 is-flex align-stretch">
         {states.map((state) => (
           <TaskColumn
             key={state}
