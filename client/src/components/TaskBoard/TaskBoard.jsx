@@ -46,11 +46,11 @@ const TaskBoard = ({ tasks: groupedTasks }) => {
 
       <div className="columns is-variable is-4 is-flex align-stretch">
         {states.map((state) => {
-          const formattedState = formatState(state); // human-readable
+          const formattedState = formatState(state);
           return (
             <TaskColumn
               key={state}
-              title={formattedState} // <-- pass formatted title
+              title={formattedState}
               tasks={tasks
                 .filter((task) => task.state === state)
                 .filter((task) =>
